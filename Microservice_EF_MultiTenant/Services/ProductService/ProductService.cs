@@ -1,20 +1,21 @@
 ﻿using Microservice_EF_MultiTenant.Models;
-using Microservice_EF_MultiTenant.Services.DTOs;
+using Microservice_EF_MultiTenant.Services.ProductService.DTOs;
 
-namespace Microservice_EF_MultiTenant.Services
+namespace Microservice_EF_MultiTenant.Services.ProductService
 {
     public class ProductService : IProductService
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductService(ApplicationDbContext context) 
-        { 
+        public ProductService(ApplicationDbContext context)
+        {
             _context = context;
         }
         public Product CreateProduct(CreateProductRequest request)
         {
             var product = new Product();
             product.Name = request.Name;
+            product.Description = request.Description;
 
             _context.Products.Add(product);
             _context.SaveChanges();

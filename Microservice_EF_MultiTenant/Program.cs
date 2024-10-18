@@ -1,5 +1,7 @@
+using Microservice_EF_MultiTenant.Middleware;
 using Microservice_EF_MultiTenant.Models;
 using Microservice_EF_MultiTenant.Services;
+using Microservice_EF_MultiTenant.Services.ProductService;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,7 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IProductService, ProductService>();
+builder.Services.AddScoped<ICurrentTenantService, CurrentTenantService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<TenantDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
@@ -23,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<TenantResolver>();
 
 app.UseAuthorization();
 

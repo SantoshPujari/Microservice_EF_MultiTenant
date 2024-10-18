@@ -1,4 +1,4 @@
-﻿namespace Microservice_EF_MultiTenant.Services.DTOs
+﻿namespace Microservice_EF_MultiTenant.Services.ProductService.DTOs
 {
     public class CreateProductRequest
     {

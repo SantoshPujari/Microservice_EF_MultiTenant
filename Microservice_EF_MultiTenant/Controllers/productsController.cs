@@ -1,5 +1,5 @@
-﻿using Microservice_EF_MultiTenant.Services;
-using Microservice_EF_MultiTenant.Services.DTOs;
+﻿using Microservice_EF_MultiTenant.Services.ProductService;
+using Microservice_EF_MultiTenant.Services.ProductService.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 

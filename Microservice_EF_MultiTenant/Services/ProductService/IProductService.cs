@@ -1,7 +1,7 @@
 ﻿using Microservice_EF_MultiTenant.Models;
-using Microservice_EF_MultiTenant.Services.DTOs;
+using Microservice_EF_MultiTenant.Services.ProductService.DTOs;
 
-namespace Microservice_EF_MultiTenant.Services
+namespace Microservice_EF_MultiTenant.Services.ProductService
 {
     public interface IProductService
     {

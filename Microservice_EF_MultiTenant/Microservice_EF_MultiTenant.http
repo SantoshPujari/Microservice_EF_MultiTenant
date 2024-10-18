@@ -1,0 +1,6 @@
+@Microservice_EF_MultiTenant_HostAddress = http://localhost:5225
+
+GET {{Microservice_EF_MultiTenant_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
